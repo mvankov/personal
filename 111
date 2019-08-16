@@ -1,0 +1,104 @@
+
+
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/osboxes/.m2/repository/ch/qos/logback/logback-classic/1.1.5/logback-classic-1.1.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/osboxes/.m2/repository/org/slf4j/slf4j-log4j12/1.7.16/slf4j-log4j12-1.7.16.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+09:48:58.429 [main] WARN  org.apache.spark.util.Utils - Your hostname, localhost.localdomain resolves to a loopback address: 127.0.0.1; using 10.0.2.15 instead (on interface enp0s3)
+09:48:58.453 [main] WARN  org.apache.spark.util.Utils - Set SPARK_LOCAL_IP if you need to bind to another address
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.apache.hadoop.security.authentication.util.KerberosUtil (file:/home/osboxes/.m2/repository/org/apache/hadoop/hadoop-auth/2.6.5/hadoop-auth-2.6.5.jar) to method sun.security.krb5.Config.getInstance()
+WARNING: Please consider reporting this to the maintainers of org.apache.hadoop.security.authentication.util.KerberosUtil
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+09:49:00.531 [main] WARN  o.a.hadoop.util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+09:49:06.625 [main] WARN  org.apache.spark.SparkContext - Using an existing SparkContext; some configuration may not take effect.
+09:49:08.680 [main] WARN  o.a.spark.sql.SparkSession$Builder - Using an existing SparkSession; some configuration may not take effect.
+09:49:08.763 [main] INFO  c.dxc.roboticdrive.utils.ConfigUtils - Trying to read custom hadoop config file from environment variable CUSTOM_HADOOP_CONFIG_FILE
+09:49:08.765 [main] INFO  c.dxc.roboticdrive.utils.ConfigUtils - Environment variable CUSTOM_HADOOP_CONFIG_FILE not set.
+
+
+java.lang.IllegalArgumentException: Unsupported class file major version 55
+
+	at org.apache.xbean.asm6.ClassReader.<init>(ClassReader.java:166)
+	at org.apache.xbean.asm6.ClassReader.<init>(ClassReader.java:148)
+	at org.apache.xbean.asm6.ClassReader.<init>(ClassReader.java:136)
+	at org.apache.xbean.asm6.ClassReader.<init>(ClassReader.java:237)
+	at org.apache.spark.util.ClosureCleaner$.getClassReader(ClosureCleaner.scala:49)
+	at org.apache.spark.util.FieldAccessFinder$$anon$3$$anonfun$visitMethodInsn$2.apply(ClosureCleaner.scala:517)
+	at org.apache.spark.util.FieldAccessFinder$$anon$3$$anonfun$visitMethodInsn$2.apply(ClosureCleaner.scala:500)
+	at scala.collection.TraversableLike$WithFilter$$anonfun$foreach$1.apply(TraversableLike.scala:733)
+	at scala.collection.mutable.HashMap$$anon$1$$anonfun$foreach$2.apply(HashMap.scala:134)
+	at scala.collection.mutable.HashMap$$anon$1$$anonfun$foreach$2.apply(HashMap.scala:134)
+	at scala.collection.mutable.HashTable$class.foreachEntry(HashTable.scala:236)
+	at scala.collection.mutable.HashMap.foreachEntry(HashMap.scala:40)
+	at scala.collection.mutable.HashMap$$anon$1.foreach(HashMap.scala:134)
+	at scala.collection.TraversableLike$WithFilter.foreach(TraversableLike.scala:732)
+	at org.apache.spark.util.FieldAccessFinder$$anon$3.visitMethodInsn(ClosureCleaner.scala:500)
+	at org.apache.xbean.asm6.ClassReader.readCode(ClassReader.java:2175)
+	at org.apache.xbean.asm6.ClassReader.readMethod(ClassReader.java:1238)
+	at org.apache.xbean.asm6.ClassReader.accept(ClassReader.java:631)
+	at org.apache.xbean.asm6.ClassReader.accept(ClassReader.java:355)
+	at org.apache.spark.util.ClosureCleaner$$anonfun$org$apache$spark$util$ClosureCleaner$$clean$14.apply(ClosureCleaner.scala:307)
+	at org.apache.spark.util.ClosureCleaner$$anonfun$org$apache$spark$util$ClosureCleaner$$clean$14.apply(ClosureCleaner.scala:306)
+	at scala.collection.immutable.List.foreach(List.scala:392)
+	at org.apache.spark.util.ClosureCleaner$.org$apache$spark$util$ClosureCleaner$$clean(ClosureCleaner.scala:306)
+	at org.apache.spark.util.ClosureCleaner$.clean(ClosureCleaner.scala:162)
+	at org.apache.spark.SparkContext.clean(SparkContext.scala:2326)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2100)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2126)
+	at org.apache.spark.rdd.RDD$$anonfun$collect$1.apply(RDD.scala:945)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:363)
+	at org.apache.spark.rdd.RDD.collect(RDD.scala:944)
+	at org.apache.spark.sql.execution.SparkPlan.executeCollect(SparkPlan.scala:299)
+	at org.apache.spark.sql.Dataset.org$apache$spark$sql$Dataset$$collectFromPlan(Dataset.scala:3384)
+	at org.apache.spark.sql.Dataset$$anonfun$collectAsList$1.apply(Dataset.scala:2795)
+	at org.apache.spark.sql.Dataset$$anonfun$collectAsList$1.apply(Dataset.scala:2794)
+	at org.apache.spark.sql.Dataset$$anonfun$53.apply(Dataset.scala:3365)
+	at org.apache.spark.sql.execution.SQLExecution$$anonfun$withNewExecutionId$1.apply(SQLExecution.scala:78)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:125)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:73)
+	at org.apache.spark.sql.Dataset.withAction(Dataset.scala:3364)
+	at org.apache.spark.sql.Dataset.collectAsList(Dataset.scala:2794)
+	at com.dxc.roboticdrive.metadata.MetaDataFrameBuilderTest.getMetadataDoesntFailWitAllResourcesFiles(MetaDataFrameBuilderTest.java:77)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:48)
+	at org.junit.rules.RunRules.evaluate(RunRules.java:20)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:27)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)
+	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47)
+	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242)
+	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70)
+
+
+
